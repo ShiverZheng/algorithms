@@ -4,6 +4,7 @@
   "description": "algorithm and data structure collection",
   "main": "index.js",
   "scripts": {
+    "start": "tsc src/index.ts --outDir build && node build/index.js",
     "lint:ts": "tslint --project tsconfig.json -c tslint.json 'src/**/*.ts?(x)'"
   },
   "repository": {
