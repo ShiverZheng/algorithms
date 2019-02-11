@@ -1,9 +1,10 @@
-interface INode<T> {
+export interface INode<T> {
     data: T;
     left: INode<T>;
     right: INode<T>;
 }
-class BST<T> {
+
+export default class BST<T> {
     private root: INode<T>;
     constructor () {
         this.root = null;
@@ -11,7 +12,7 @@ class BST<T> {
 
     getRoot = () => this.root;
 
-    node = (data: T, left: INode<T>, right: INode<T>) => ({ data, left, right });
+    private node = (data: T, left: INode<T>, right: INode<T>) => ({ data, left, right });
 
     insert = (data: T) => {
         const node = this.node(data, null, null);
@@ -46,7 +47,7 @@ class BST<T> {
         }
     }
 
-    removeNode = (node: INode<T>, data: T) => {
+    private removeNode = (node: INode<T>, data: T) => {
         if (node === null) return null;
         if (data === node.data) {
             if (node.left === null && node.right === null) return null;
@@ -63,5 +64,17 @@ class BST<T> {
 
     remove = (data: T) => {
         this.root = this.removeNode(this.root, data);
+    }
+
+    private inOrderTraverseNode = (node: INode<T>, callback: any) => {
+        if (node !== null) {
+            this.inOrderTraverseNode(node.left, callback);
+            callback(node.data);
+            this.inOrderTraverseNode(node.right, callback);
+        }
+    }
+
+    inOrderTraverse = (callback: any) => {
+        this.inOrderTraverseNode(this.root, callback);
     }
 }
