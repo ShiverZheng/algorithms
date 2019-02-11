@@ -1,0 +1,52 @@
+{
+    "extends": [
+        "tslint-config-prettier",
+        "tslint-config-airbnb"
+    ],
+    "rules": {
+        "max-line-length": [true, 120],
+        "indent": [true, "spaces", 4],
+        "ter-indent": [true, 4],
+        "jsx-equals-spacing": [true, "never"],
+        "jsx-wrap-multiline": [true],
+        "jsx-no-multiline-js": [false],
+        "jsx-no-lambda": [false],
+        "jsx-key": [true],
+        "jsx-boolean-value": [true, "never"],
+        "jsx-self-close": [true],
+        "jsx-alignment": [true],
+        "jsx-no-bind": [true],
+        "no-increment-decrement": [false],
+        "no-conditional-assignment": [true],
+        "strict-boolean-expressions": [false],
+        "ban-types": [
+            true,
+            ["object", "define interface"],
+            ["Object", "define interface"]
+        ],
+        "typedef-whitespace": [
+            true,
+            {
+                "call-signature": "nospace",
+                "index-signature": "nospace",
+                "parameter": "nospace",
+                "property-declaration": "nospace",
+                "variable-declaration": "nospace"
+            },
+            {
+                "call-signature": "onespace",
+                "index-signature": "onespace",
+                "parameter": "onespace",
+                "property-declaration": "onespace",
+                "variable-declaration": "onespace"
+            }
+        ],
+        "one-line": [
+            true,
+            "check-catch",
+            "check-finally",
+            "check-else"
+        ]
+
+    }
+}

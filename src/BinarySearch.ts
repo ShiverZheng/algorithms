@@ -1,12 +1,20 @@
-class BST {
+interface INode<T> {
+    data: T;
+    left: INode<T>;
+    right: INode<T>;
+}
+class BST<T> {
+    private root: INode<T>;
     constructor () {
         this.root = null;
     }
 
-    node = (data, left, right) => ({ data, left, right });
+    getRoot = () => this.root;
 
-    insert = (data) => {
-        let node = this.node(data, null, null);
+    node = (data: T, left: INode<T>, right: INode<T>) => ({ data, left, right });
+
+    insert = (data: T) => {
+        const node = this.node(data, null, null);
         if (this.root === null) {
             this.root = node;
         } else {
@@ -29,7 +37,7 @@ class BST {
         }
     }
 
-    find = (data) => {
+    find = (data: T) => {
         let current = this.root;
         while (true) {
             if (data === current.data) return current;
@@ -38,7 +46,7 @@ class BST {
         }
     }
 
-    removeNode = (node, data) => {
+    removeNode = (node: INode<T>, data: T) => {
         if (node === null) return null;
         if (data === node.data) {
             if (node.left === null && node.right === null) return null;
@@ -53,18 +61,7 @@ class BST {
         }
     }
 
-    remove = (data) => {
-        this.root = this.removeNode(this.root, data)
+    remove = (data: T) => {
+        this.root = this.removeNode(this.root, data);
     }
 }
-
-const bst = new BST();
-bst.insert(5);
-bst.insert(3);
-bst.insert(7);
-bst.insert(2);
-bst.insert(6);
-bst.insert(1);
-bst.insert(9);
-console.log(bst.root);
-console.log(bst.find(6));
