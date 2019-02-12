@@ -4,7 +4,7 @@ export interface INode<T> {
     right: INode<T>;
 }
 
-export default class BST<T> {
+export default class BinaryTree<T> {
     private root: INode<T>;
     constructor () {
         this.root = null;
@@ -66,7 +66,7 @@ export default class BST<T> {
         this.root = this.removeNode(this.root, data);
     }
 
-    private inOrderTraverseNode = (node: INode<T>, callback: any) => {
+    private inOrderTraverseNode = (node: INode<T>, callback: (data: T) => void) => {
         if (node !== null) {
             this.inOrderTraverseNode(node.left, callback);
             callback(node.data);
@@ -74,7 +74,31 @@ export default class BST<T> {
         }
     }
 
-    inOrderTraverse = (callback: any) => {
+    private preOrderTraverseNode = (node: INode<T>, callback: (data: T) => void) => {
+        if (node !== null) {
+            callback(node.data);
+            this.preOrderTraverseNode(node.left, callback);
+            this.preOrderTraverseNode(node.right, callback);
+        }
+    }
+
+    private postOrderTraverseNode = (node: INode<T>, callback: (data: T) => void) => {
+        if (node !== null) {
+            this.postOrderTraverseNode(node.left, callback);
+            this.postOrderTraverseNode(node.right, callback);
+            callback(node.data);
+        }
+    }
+
+    inOrderTraverse = (callback: (data: T) => void) => {
         this.inOrderTraverseNode(this.root, callback);
+    }
+
+    preOrderTraverse = (callback: (data: T) => void) => {
+        this.preOrderTraverseNode(this.root, callback);
+    }
+
+    postOrderTraverse = (callback: (data: T) => void) => {
+        this.postOrderTraverseNode(this.root, callback);
     }
 }

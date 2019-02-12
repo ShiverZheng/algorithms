@@ -1,11 +1,11 @@
-import BST from './BST';
+import BinaryTree from './BinaryTree';
 
-const bst = new BST();
-bst.insert(3);
-bst.insert(5);
-bst.insert(1);
-bst.insert(6);
-bst.insert(7);
-bst.insert(2);
-console.log(bst.getRoot());
-bst.inOrderTraverse(v => console.log(v));
+const binaryTree = new BinaryTree();
+binaryTree.insert(3);
+binaryTree.insert(5);
+binaryTree.insert(1);
+binaryTree.insert(6);
+binaryTree.insert(7);
+binaryTree.insert(2);
+console.log(binaryTree.getRoot());
+binaryTree.inOrderTraverse(v => console.log(v));
