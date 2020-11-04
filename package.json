@@ -4,6 +4,7 @@
   "description": "algorithm and data structure collection",
   "main": "index.js",
   "scripts": {
+    "build": "webpack",
     "start": "tsc src/index.ts --outDir build && node build/index.js",
     "lint:ts": "tslint --project tsconfig.json -c tslint.json 'src/**/*.ts?(x)'"
   },
@@ -22,11 +23,14 @@
   },
   "homepage": "https://github.com/ShiverZheng/algorithms#readme",
   "dependencies": {
-    "tslint": "^5.12.1",
-    "typescript": "^3.3.3"
+    "tslint": "^5.12.1"
   },
   "devDependencies": {
+    "ts-loader": "^8.0.7",
     "tslint-config-airbnb": "^5.11.1",
-    "tslint-config-prettier": "^1.18.0"
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.9.7",
+    "webpack": "^5.3.2",
+    "webpack-cli": "^4.1.0"
   }
 }
