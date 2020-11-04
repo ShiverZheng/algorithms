@@ -1,7 +1,5 @@
-"use strict";
-exports.__esModule = true;
-var BST = /** @class */ (function () {
-    function BST() {
+var BinaryTree = /** @class */ (function () {
+    function BinaryTree() {
         var _this = this;
         this.getRoot = function () { return _this.root; };
         this.node = function (data, left, right) { return ({ data: data, left: left, right: right }); };
@@ -70,11 +68,31 @@ var BST = /** @class */ (function () {
                 _this.inOrderTraverseNode(node.right, callback);
             }
         };
+        this.preOrderTraverseNode = function (node, callback) {
+            if (node !== null) {
+                callback(node.data);
+                _this.preOrderTraverseNode(node.left, callback);
+                _this.preOrderTraverseNode(node.right, callback);
+            }
+        };
+        this.postOrderTraverseNode = function (node, callback) {
+            if (node !== null) {
+                _this.postOrderTraverseNode(node.left, callback);
+                _this.postOrderTraverseNode(node.right, callback);
+                callback(node.data);
+            }
+        };
         this.inOrderTraverse = function (callback) {
             _this.inOrderTraverseNode(_this.root, callback);
         };
+        this.preOrderTraverse = function (callback) {
+            _this.preOrderTraverseNode(_this.root, callback);
+        };
+        this.postOrderTraverse = function (callback) {
+            _this.postOrderTraverseNode(_this.root, callback);
+        };
         this.root = null;
     }
-    return BST;
+    return BinaryTree;
 }());
-exports["default"] = BST;
+export default BinaryTree;

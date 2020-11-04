@@ -1,12 +1,28 @@
-"use strict";
-exports.__esModule = true;
-var BST_1 = require("./BST");
-var bst = new BST_1["default"]();
-bst.insert(3);
-bst.insert(5);
-bst.insert(1);
-bst.insert(6);
-bst.insert(7);
-bst.insert(2);
-console.log(bst.getRoot());
-bst.inOrderTraverse(function (v) { return console.log(v); });
+import BinaryTree from './BinaryTree';
+import { bezier } from './Bezier';
+import { generateCircle, generatePoints } from './continuousCurve';
+var binaryTree = new BinaryTree();
+binaryTree.insert(3);
+binaryTree.insert(5);
+binaryTree.insert(1);
+binaryTree.insert(6);
+binaryTree.insert(7);
+binaryTree.insert(2);
+console.log(binaryTree.getRoot());
+binaryTree.inOrderTraverse(function (v) { return console.log(v); });
+var points = [{ x: 20, y: 10 }, { x: 30, y: 14 }, { x: 34, y: 15 }];
+console.log(bezier(points, 200));
+/**
+ *
+ * 通过配置圆形 来生成连续的随机曲线
+ *
+ * */
+var circles = generateCircle({
+    maxRadius: 700,
+    minRadius: 300,
+    maxPercent: 60,
+    minPercent: 40,
+    length: 100,
+});
+var curvePoints = generatePoints(circles, 10);
+console.log(curvePoints);
