@@ -3,6 +3,7 @@ import { bezier } from './Bezier';
 import { generateCircle, generatePoints } from './continuousCurve';
 import findInMatrix from './findInMatrix';
 import LinkedList from './LinkedList';
+import reConstructBinaryTree from './reConstructBinaryTree';
 
 // const binaryTree = new BinaryTree();
 // binaryTree.insert(3);
@@ -36,15 +37,17 @@ import LinkedList from './LinkedList';
 
 // console.log(findInMatrix(6, [[1, 2, 3, 4],  [5, 6, 7, 8],  [9, 10, 11, 12], [13, 14, 15, 16]]));
 
-const list = new LinkedList<number>();
+// const list = new LinkedList<number>();
 
-list.insert(1);
-list.insert(2);
-list.insert(3);
-list.insert(4);
-list.insert(7, 3);
-list.remove(2);
-list.print();
-console.log(list.find(1));
-console.log(list.findLastNode());
-console.log(list.findPreNode(7));
+// list.insert(1);
+// list.insert(2);
+// list.insert(3);
+// list.insert(4);
+// list.insert(7, 3);
+// list.remove(2);
+// list.print();
+// console.log(list.find(1));
+// console.log(list.findLastNode());
+// console.log(list.findPreNode(7));
+
+console.log(reConstructBinaryTree([1, 2, 4, 5, 3, 6, 7], [4, 2, 5, 1, 6, 3, 7]));
